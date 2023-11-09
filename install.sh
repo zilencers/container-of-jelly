@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Update the system
+dnf -y update
+
 # Create jellyfin group
 groupadd -U conman jellyfin
 
