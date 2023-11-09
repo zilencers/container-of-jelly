@@ -16,12 +16,6 @@ chown -R root:jellyfin /var/cache/jellyfin
 # Switch to user conman
 su - conman
 
-# Clone github repo
-git clone https://github.com/zilencers/container-of-jelly.git
-
-# Change directory 
-cd container-of-jelly
-
 # Build the podman image
 podman build -t jellyfin -f config/Dockerfile
 
