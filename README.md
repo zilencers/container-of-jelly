@@ -1,15 +1,15 @@
-### Jellyfin Container
+## Jellyfin Container
 
-## Step 1
+### Step 1
 git clone (repo)
 
-## Step 2
+### Step 2
 cd container-of-jelly
 
-## Step 3
+### Step 3
 podman build -t jellyfin -f Dockerfile
 
-## Step 4
+### Step 4
 podman run \ 
 -d \
 -v /etc/opt/jellyfin/config:/config \
