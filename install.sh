@@ -13,8 +13,8 @@ chown -R root:jellyfin /srv/jellyfin
 chown -R root:jellyfin /etc/opt/jellyfin
 chown -R root:jellyfin /var/cache/jellyfin
 
-# Get podmen user id
-USERID=$(id -u podmen)
+# Switch to user conman
+su - conman
 
 # Clone github repo
 git clone https://github.com/zilencers/container-of-jelly.git
@@ -34,7 +34,6 @@ podman run -d \
 -v /srv/jellyfin/media/music:/music \
 -v /srv/jellyfin/media/photos:/photos \
 -t jellyfin \
---user=$USERID \
 --net=host \
 --restart always \
 localhost/jellyfin:latest
