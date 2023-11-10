@@ -1,24 +1,5 @@
 #!/bin/bash
 
-# Update the system
-dnf -y update
-
-# Create jellyfin group
-groupadd -U conman jellyfin
-
-# Make media directories
-mkdir -p /etc/opt/jellyfin/config
-mkdir -p /var/cache/jellyfin/cache
-mkdir -p /srv/jellyfin/media/{movies,shows,music,photos}
-
-# Change owner and group
-chown -R root:jellyfin /srv/jellyfin
-chown -R root:jellyfin /etc/opt/jellyfin
-chown -R root:jellyfin /var/cache/jellyfin
-
-# Switch to user conman
-su - conman
-
 # Build the podman image
 podman build -t jellyfin -f config/Dockerfile
 
@@ -30,7 +11,7 @@ podman run -d \
 -v /srv/jellyfin/media/shows:/shows \
 -v /srv/jellyfin/media/music:/music \
 -v /srv/jellyfin/media/photos:/photos \
--t jellyfin \
+--name jellyfin \
 --net=host \
 --restart always \
 localhost/jellyfin:latest
