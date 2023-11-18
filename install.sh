@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Enable linger
+loginctl enable-linger $USER
+
 # Build the podman image
 podman build -t jellyfin -f config/Dockerfile
 
