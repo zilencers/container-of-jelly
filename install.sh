@@ -12,10 +12,10 @@ podman run -d \
   --userns keep-id \
   -v /etc/opt/jellyfin/config:/config:Z \
   -v /var/cache/jellyfin/cache:/cache:Z \
-  -v /mnt/movies:/mnt/movies:Z \
-  -v /mnt/shows:/mnt/show:Z \
-  -v /mnt/music:/mnt/music:Z \
-  -v /mnt/photos:/mnt/photos:Z \
+  -v /srv/share/movies:/mnt/movies:Z \
+  -v /srv/share/shows:/mnt/shows:Z \
+  -v /srv/share/music:/mnt/music:Z \
+  -v /srv/photos:/mnt/photos:Z \
   -v /srv/local/media/movies:/movies:Z \ 
   -v /srv/local/media/shows:/shows:Z \
   -v /srv/local/media/music:/music:Z \
