@@ -7,7 +7,7 @@
 podman build -t jellyfin -f config/Dockerfile
 
 # Create a network for jellyfin
-podman create network \
+podman network create \
   -d ipvlan \
   --subnet 192.168.0.0/24 \
   --gateway 192.168.0.1 \
