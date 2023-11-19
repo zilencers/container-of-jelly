@@ -6,6 +6,15 @@
 # Build the podman image
 podman build -t jellyfin -f config/Dockerfile
 
+# Create a network for jellyfin
+podman create network \
+  -d ipvlan \
+  --subnet 192.168.0.0/24 \
+  --gateway 192.168.0.1 \
+  --ip-range 192.168.0.254/32 \
+  -o parent=eno1 \
+  local
+
 # Run the container
 podman run -d \
  --name jellyfin \
