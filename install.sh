@@ -16,17 +16,12 @@ podman create network \
   --ignore \
   jellyfin
 
-
 # Run the container
-# --sysctl strings                           Sysctl options
-# --ip string                                Specify a static IPv4 address for the container
-# --hostname string                          Set container hostname
-
 podman run -d \
  --name jellyfin \
  --network jellyfin \
- --ip 192.168.0.9
- --hostname jellyfin
+ --ip 192.168.0.9 \
+ --hostname jellyfin \
  --volume /etc/opt/jellyfin/config:/config:Z \
  --volume /var/cache/jellyfin/cache:/cache:Z \
  --volume /srv/share/movies:/mnt/movies \
